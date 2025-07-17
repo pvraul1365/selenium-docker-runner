@@ -1,6 +1,6 @@
 services:
   vendor-portal:
-    image: vinsdocker/selenium
+    image: rperezvicente/selenium
     environment:
     - BROWSER
     - HUB_HOST=hub
@@ -9,7 +9,7 @@ services:
     volumes:
     - ./output/vendor-portal:/home/selenium-docker/test-output 
   flight-reservation:
-    image: vinsdocker/selenium
+    image: rperezvicente/selenium
     environment:
     - BROWSER
     - HUB_HOST=hub
