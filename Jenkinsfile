@@ -16,6 +16,11 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh 'docker-compose -f test-suites.yaml up'
+                script {
+                    if (fileExists('output/flight-reservation/testng-failed.xml') || fileExists('output/vendor-portal/testng-failed.xml')) {
+                       error 'flight reservation or vendor portal tests failed.'
+                    }
+                }
             }
         }
 
